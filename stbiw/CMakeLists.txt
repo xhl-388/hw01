@@ -1,1 +1,8 @@
-message(FATAL_ERROR "请修改 stbiw/CMakeLists.txt！要求生成一个名为 stbiw 的库")
+add_library(stbiw stb_image_write.cpp)
+
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set_target_properties(stbiw PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(stbiw PUBLIC .)
